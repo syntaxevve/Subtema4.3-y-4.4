@@ -20,9 +20,22 @@ def eliminar(nombreAborrar):
               #dejar en blanco la ultima ubicacion
               nombre_mascotas[-1] = ""
               edad_mascotas[-1] = 0
-              print(f"Mascota eliminda {nombre_mascota[i]}")
+              print(f"Mascota eliminda {nombre_mascotas[i]}")
               return #detener la busqueda de la mascota con el mismo nombre
 def ordenarMascotita():
+     for i in range(len(nombre_mascotas)):
+         for j in range(len(nombre_mascotas)-1): #penultimo elemento y coopararlo con el ultimo
+             mascota1 = nombre_mascotas [j]
+             mascota2 = nombre_mascotas [j+1]
+
+             if mascota1[0] > mascota2 [0]: #true
+                 temporal = nombre_mascotas[j]
+                 nombre_mascotas[j] = nombre_mascotas[j+1]
+                 nombre_mascotas[j+1] = temporal
+            #Nombre mascotas [j]} [erick, , jaime] ISCII
+
+     print("mascotas ordenadas !!")
+                                     
 
 def main ():
     global nombre_mascotas, edad_mascotas #para modificar las listas declaradas fuera del arreglo
@@ -35,7 +48,7 @@ def main ():
         os.system('cls' if os.name== 'nt' else 'clear')
         print("[1] Ingresar mascota (nombre | edad)")
         print("[2] Mostrar mascota (noombre | edad)")
-        print("[3] Eliminar mascotas por nombre 8en ambos vectores)")
+        print("[3] Eliminar mascotas por nombre en ambos vectores)")
         print("[4] Ordenar mascotas alfabeticamente")
         print("[5] Salir")
         opcion = int (input("Elija una opcion: "))
@@ -47,6 +60,8 @@ def main ():
              mascotaAborrar = input("Ingrese mascota a borrar: ")
              eliminar(mascotaAborrar)
         elif opcion==4:
+            ordenarMascotita()
+            mostrar()
             print("Ordenar")
         elif opcion==5:
             print("Saliendo...")
